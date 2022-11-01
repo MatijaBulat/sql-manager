@@ -10,7 +10,7 @@ namespace Dal
 {
     public static class RepositoryFactory
     {
-        private static readonly Lazy<IRepository> repository = new Lazy<IRepository>(() => new SqlRepository());
+        private static readonly Lazy<IRepository> repository = new Lazy<IRepository>(() => Activator.CreateInstance(typeof(SqlRepository)) as IRepository);
         public static IRepository GetRepository() => repository.Value;
     }
 }

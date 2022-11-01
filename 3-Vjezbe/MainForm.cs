@@ -42,6 +42,7 @@ namespace _3_Vježbe
 
         private void BtnExecute_Click(object sender, EventArgs e)
         {
+            ClearTabControl();
             SqlResponse sqlResponse = new SqlResponse();
             Database database = CbDatabases.SelectedItem as Database;
 
@@ -60,6 +61,12 @@ namespace _3_Vježbe
                 TabControl.SelectTab(1);
             }
             CbDatabases_SelectedIndexChanged(sender, e);
+        }
+
+        private void ClearTabControl()
+        {
+            TbMessages.Text = "";
+            DgvResults.DataSource = "";
         }
     }
 }
